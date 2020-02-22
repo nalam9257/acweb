@@ -1,0 +1,117 @@
+{% extends 'base.html'%}
+{% block content%}
+{%include 'nav_bar.html'%}
+{% load staticfiles %}
+<!-------------------------------messages------------------------------------------->
+{% if success %}
+    {% for msg in messages %}
+        <div class="alert alert-{{message.tags}} m-2" id="msg" role="alert" style=" color: #1E8449; text-align: center;">
+        {{msg}}
+        </div>
+    {%endfor%}
+{%else%}
+ 
+    {%for msg in messages%}
+        <div class="alert alert-success m-2" id="msg" role="alert" style="width: 30%; color: red; text-align: center;">
+          {{msg}}
+        </div>
+    {%endfor%}
+{%endif%}
+
+<!---------------------------------linking to css--------------------------->
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css'%}">
+<!-------------------------------------starting div------------------------>
+<div id="service">
+	<div class="container3">
+		<h2>our service</h2>
+  	<p> we provide following service</p>
+</div>
+ 
+<div class="container4">
+  
+  
+  <div class="card-deck">
+  	<!--card1-->
+    <div class="card bg-secondary">
+      <div class="card-body text-center">
+        
+        <!--image-->
+    
+      <h4 class="card-title">Gas Filling</h4>
+      <p class="card-text">Need help for filling gas in  air conditioner?
+We are ready to filling gas both Split and Window air conditioner.</p>
+      <a href="{% url 'gasfilling' %}" class="btn btn-primary">Go to service</a>
+      </div> </div> 
+    <!--card 2==-->    
+      
+    
+    <div class="card bg-secondary">
+      <div class="card-body text-center">
+      	
+      <h4 class="card-title">AC_Repair</h4>
+      <p class="card-text">Need for repair you  air conditioner?
+We are ready to repair both Split and Window air conditioner.</p>
+      <a href="{% url 'repair' %}" class="btn btn-primary">Go to service</a>
+        
+      </div>
+    </div>
+    
+
+    <!--card3-->
+    <div class="card bg-secondary">
+      <div class="card-body text-center">
+        
+    
+      <h4 class="card-title">Compressor</h4>
+      <p class="card-text">Need to check compressor of air conditioner?
+We are ready to check and replace  compressor in you air conditioner.</p>
+      <a href="{% url 'compressor' %}" class="btn btn-primary">Go to service</a>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<div class="container4">
+  <h1>  </h1>
+  <!--card 1-->
+  <div class="card-deck">
+    <div class="card bg-secondary">
+      <div class="card-body text-center">
+        
+        
+    
+      <h4 class="card-title">Dust Cleaning</h4>
+      <p class="card-text">Need help cleaning dust  air conditioner?
+We are ready to clean both Split and Window air conditioner.</p>
+      <a href="{% url 'dust' %}" class="btn btn-primary">Go to service</a>
+      </div> </div> 
+   
+    <!--card 2==-->  
+    <div class="card bg-secondary">
+      <div class="card-body text-center">
+        
+    
+      <h4 class="card-title">Cleanning Fillter</h4>
+      <p class="card-text">Need help in cleaning filter a   air conditioner?
+We are ready to cleaning filter both Split and Window air conditioner.
+</p>
+      <a href="{% url 'fillter' %}" class="btn btn-primary">Go to service</a>
+      </div>
+    </div>
+    
+    <!--card3-->
+    <div class="card bg-secondary">
+      <div class="card-body text-center">
+        
+    
+      <h4 class="card-title">Installation</h4>
+      <p class="card-text">Need help installing a new  air conditioner?
+We are ready to install both Split and Window air conditioner.</p>
+      <a href="{% url 'installation' %}" class="btn btn-primary">Go to service</a>
+      </div>
+    </div>  
+  </div>
+</div>
+</div>
+<!---------------------------------------------end div--------------------------------->
+{%endblock content%}

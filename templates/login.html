@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags%}
+{%block content %}
+{%load staticfiles %}
+{%include 'nav_bar.html' %}
+<!--------------------------starting div----------------------------------------->
+<div class="text-center" style="background-color: #eee;width: 30%;margin-top: 10%;margin-left: 35%; ">
+<!-------------------------form--------------------------------->
+<form method="POST" action="{% url 'users:login' %}">
+	{%csrf_token%}
+	<fieldset>
+		<legend>Login</legend>
+	</fieldset>
+	<label>Username</label>
+	<input type="text" name="username"><br><br>
+	<label>password</label>
+	<input type="password" name="password"><br><br>
+	<input type="submit" name="" value="Login" style="background-color: #4CAF50">
+</form>
+</div>
+<!---------------------------end div----------------------------------------->
+{%endblock content %}

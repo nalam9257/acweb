@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'nav_bar.html' %}
+{%  load staticfiles %}
+<!--******************************message**********************************-->
+{% if success %}
+    {% for msg in messages %}
+        <div class="alert alert-{{message.tags}} m-2" id="msg" role="alert" style=" color: #1E8449; text-align: center;">
+          {{msg}}
+        </div>
+    {%endfor%}
+{%else%}
+ 
+  {%for msg in messages%}
+    <div class="alert alert-{{message.tags}} m-2" id="msg" role="alert" style="background-color: #eee;color: red;">
+      {{msg}}
+    </div>
+  {%endfor%}
+   
+{%endif%}
+<!--*********************************linking to documents*******************************-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+<!--*********************************startin div***************************************-->
+<div id="con">
+<h3 class="text-center contact">Contact Form</h3>
+<div class="container">
+  <!--*******************************************Form******************************-->
+  <form action="{%url 'contact_us:sendfun'%}" method="POST">
+    {%csrf_token%}
+    <label for="fname">Full Name</label>
+    <input type="text" id="fname" name="fullname" placeholder="Your name.">
+    <label for="lname">Email</label>
+    <input type="text" id="lname" name="email" placeholder="Email.">
+    <label for="subject">subject</label>
+    <input type="text" id="lname" name="subject" placeholder="Subject">
+    <label for="subject">Message</label>
+    <textarea id="subject" name="message" placeholder="Write something.." style="height:200px"></textarea>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</div>
+<!--************************************end div********************************************-->
+{%endblock content%}

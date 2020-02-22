@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% block content%}
+{% load staticfiles %}
+<!-- *****************************************linking documents***************************************-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/service.css' %}">
+<!--*****************************************starting div****************************************-->
+	<div class="filter">
+		<div class="image">
+			<div class="text1">
+				<h1>Dust cleaning</h1>
+			</div>
+		</div>
+		<div class="main"></div>
+			<div class="frame">
+				<!--**************************************Form*******************************************-->
+				<form action="{% url 'features:customer_details' %}" method="post">
+					{%csrf_token%}
+					<input class="input" type="text" name="name" placeholder="full name">
+					<input class="input" type="text" name="email" placeholder="Email">
+					<input class="input" type="text" name="mobile" placeholder="Mobile no.">
+					<select name="order" class="select">
+						<option value="Dust Cleaning">Dust Cleaning</option>
+	    				<option value="GAS Filling">GAS Filling</option>
+	    				<option value="Installation">Installation</option>
+	    				<option value="AC-Reapair">AC-Reapair</option>
+	    				<option value="Compressor">Compressor Cleanning</option>
+	    				<option value="Gas FillingGas"> Filling</option>
+	    			</select>
+	  				<select name="actype" class="select">
+	    				<option value="Window AC">Window AC</option>
+	    				<option value="Split AC">Split AC</option>
+	  				</select>
+
+					<textarea placeholder="address" name="address" class="ta"></textarea>
+					<input class="btn" type="submit" name="">
+				</form>
+			</div>
+			<!--**************************************text for AC Dust cleaning*******************************************-->
+			<div class="text">
+				<h1>Dust Cleaning</h1>
+				<p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+
+		</div>
+	</div>
+<!--**************************************************end div******************************************************-->
+{%endblock content%}

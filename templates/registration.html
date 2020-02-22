@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load staticfiles %}
+{% include 'nav_bar.html' %}
+<!----------------------------------starting div----------------------->
+<div class="border border-dark">
+<div class="w-auto p-3" style="background-color: #eee;margin: 10%">
+{% if registered%}
+		<h1>Thank for registeration</h1>
+{%else%}
+<!--------------------------------Form---------------------------------->
+<form method='post'>
+	{% csrf_token %}
+	<fieldset>
+	<legend>Registeration Here</legend>
+	{{profile|crispy}}
+	</fieldset>
+	<input type="submit" name="" value="Register" style="width: 10%;background-color: #4CAF50;;">
+</form>
+</div>
+</div>
+{% endif %}
+<!---------------------------------end div------------------------------->
+{% endblock content %}
